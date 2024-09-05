@@ -6,37 +6,29 @@ import {
   EmblaOptionsType,
 } from "embla-carousel";
 import useEmblaCarousel from "embla-carousel-react";
-import {
-  NextButton,
-  PrevButton,
-  usePrevNextButtons,
-} from "./OffersCarouselArrowButtons";
-import { DotButton, useDotButton } from "./OffersCarouselDotButtons";
-import DisplayedOffers from "../DisplayedOffers";
+import { usePrevNextButtons } from "./ui/OffersCarouselArrowButtons";
+
+import DisplayedOffers from "./DisplayedOffers";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { IoMdArrowRoundForward } from "react-icons/io";
 const TWEEN_FACTOR_BASE = 0.2;
 
-type PropType = {
-  slides: number[];
-  options?: EmblaOptionsType;
-};
-
-const OffersCarousel: React.FC<PropType> = (props) => {
-  const { slides, options } = props;
-  const [emblaRef, emblaApi] = useEmblaCarousel(options);
+const OPTIONS: EmblaOptionsType = { dragFree: true, loop: true };
+const SLIDE_COUNT = 3;
+const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
+const Offers = () => {
+  const [emblaRef, emblaApi] = useEmblaCarousel(OPTIONS);
   const tweenFactor = useRef(0);
   const tweenNodes = useRef<HTMLElement[]>([]);
-
-  const { selectedIndex, scrollSnaps, onDotButtonClick } =
-    useDotButton(emblaApi);
+  const slides = SLIDES;
+  // const { selectedIndex, scrollSnaps, onDotButtonClick } =
+  //   useDotButton(emblaApi);
 
   const {
     prevBtnDisabled,
     nextBtnDisabled,
     onPrevButtonClick,
     onNextButtonClick,
-    
   } = usePrevNextButtons(emblaApi);
 
   const setTweenNodes = useCallback((emblaApi: EmblaCarouselType): void => {
@@ -105,13 +97,12 @@ const OffersCarousel: React.FC<PropType> = (props) => {
   }, [emblaApi, tweenParallax]);
 
   return (
-    <div className="embla bg-white rounded-xl ">
-      <div className="flex justify-between items-center px-4  w-full">
-        <h2 className="text-3xl font-bold">Offers</h2>
-        <div className="embla__controls">
-          <div className="embla__buttons">
+    <div className="w-full bg-blue-100  p-24">
+      <div className="embla bg-white rounded-xl flex flex-col items-start p-6">
+        <div className="flex justify-between items-center px-10  w-full">
+          <h2 className="text-3xl font-bold">Offers</h2>
+          <div className="flex gap-2 items-center">
             <div className="bg-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg">
-           
               <button disabled={prevBtnDisabled}>
                 <IoMdArrowRoundBack
                   className="text-black/80 text-2xl"
@@ -127,37 +118,35 @@ const OffersCarousel: React.FC<PropType> = (props) => {
                 />
               </button>
             </div>
-         
           </div>
-
-          {/* <div className="embla__dots">
-        {scrollSnaps.map((_, index) => (
-          <DotButton
-            key={index}
-            onClick={() => onDotButtonClick(index)}
-            className={"embla__dot".concat(
-              index === selectedIndex ? "  bg-black" : ""
-            )}
-          />
-        ))}
-      </div> */}
         </div>
-      </div>
-      <div className="embla__viewport" ref={emblaRef}>
-        <div className="embla__container">
-          {slides.map((index) => (
-            <div className="embla__slide" key={index}>
-              <div className="embla__parallax">
-                <div className="embla__parallax__layer p-6">
-                  <DisplayedOffers index={index} />
+        <div className="overflow-hidden" ref={emblaRef}>
+          <div className="embla__container flex">
+            {slides.map((index) => (
+              <div className="embla__slide" key={index}>
+                <div className="overflow-hidden">
+                  <div className="embla__parallax__layer p-6">
+                    <DisplayedOffers index={index} />
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </div>
   );
 };
+//       <div className="embla__dots">
+//   {scrollSnaps.map((_, index) => (
+//     <DotButton
+//       key={index}
+//       onClick={() => onDotButtonClick(index)}
+//       className={"embla__dot".concat(
+//         index === selectedIndex ? "  bg-black" : ""
+//       )}
+//     />
+//   ))}
+// </div>
 
-export default OffersCarousel;
+export default Offers;

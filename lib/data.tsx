@@ -145,5 +145,45 @@ export const offers = [
       airway: brussels,
       tripType: "Round Trip",
     },
+    {
+      id: 10,
+      image: zanzibar,
+      from: "Zanzibar",
+      to: "Lagos",
+      price: 1375000,
+      airway: lufthansa,
+      tripType: "Oneway",
+    },
+    {
+      id: 11,
+      image: zanzibar,
+      from: "Zanzibar",
+      to: "Lagos",
+      price: 1375000,
+      airway: lufthansa,
+      tripType: "Oneway",
+    },
   ],
 ];
+export const travel = [
+  {
+    title: "Safe Travel",
+    description:
+      "Your safety is our priority. With top-notch security measures and real-time tracking, enjoy peace of mind on every journey",
+    // icon: "https://www.lyncs.africa/images/icon.svg",
+  },
+  {
+    title: "Comfortable Seats",
+    description:
+      "Sit back and relax in our plush, ergonomic seats designed for ultimate comfort, making even long trips a pleasure",
+  },
+  {
+    title: "Best Rates",
+    description:
+      "Travel in style without breaking the bank. We offer the most competitive rates to give you the best value for your money.",
+  },
+];
+import { BsQrCode } from "react-icons/bs";
+import { FaPlaneDeparture } from "react-icons/fa";
+import { Briefcase } from "lucide-react";
+// export 

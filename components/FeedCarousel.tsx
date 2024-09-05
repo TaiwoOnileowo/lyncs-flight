@@ -1,7 +1,6 @@
 "use client";
 import * as React from "react";
 import Autoplay from "embla-carousel-autoplay";
-import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 import {
   Carousel,
@@ -25,34 +24,31 @@ export function FlightCarousel() {
     >
       <CarouselContent className="-ml-1">
         {flightFeed.map(({ image, from, to }, index) => (
-          <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/2">
-            <div className="">
-              <Card>
-                <CardContent className="flex w-[100%] h-[300px] aspect-square items-center justify-center p-6 cursor-pointer">
-                  <div className="w-fit h-fit aspect-square  rounded-xl relative">
-                    <div className="absolute top-0 left-0 w-full h-full rounded-xl bg-black/40" />
-                    <Image
-                      src={image}
-                      alt="flight"
-                      className="w-full h-full object-cover rounded-xl"
-                      priority
-                    />
-                    <div className="bg-white/30 px-4 text-sm text-white rounded-t-xl h-[50%] bottom-0 absolute left-0 z-[10] w-full flex items-center justify-center">
-                      <div className="flex gap-3 w-full items-center justify-center">
-                        <p>{from}</p>
-                        <div className="flex gap-1 items-center justify-center">
-                          <div className="bg-white rounded-full w-1 h-1"></div>
-                          <hr className="border-t border-white border-dashed w-[20px] h-0.5" />
-                          <IoAirplane className="text-white/80 text-2xl" />
-                          <hr className="border-t border-white border-dashed w-[20px] h-0.5" />
-                        </div>
-                        <div className="bg-white rounded-full w-1 h-1"></div>
-                        <p>{to}</p>
-                      </div>
-                    </div>
+          <CarouselItem
+            key={index}
+            className="md:basis-1/2 lg:basis-1/2 rounded-xl "
+          >
+            <div className="flex w-[90%] relative h-[200px]  rounded-xl aspect-square items-center justify-center cursor-pointer">
+              <div className="absolute top-0 left-0 w-full h-full rounded-xl bg-black/40" />
+              <Image
+                src={image}
+                alt="flight"
+                className="w-full h-full object-cover rounded-xl"
+                priority
+              />
+              <div className="bg-gray-300/20 px-4  text-white rounded-t-xl h-[50%] bottom-0 absolute left-0 z-[10] w-full flex items-center justify-center">
+                <div className="flex gap-3 w-full items-center justify-center">
+                  <p>{from}</p>
+                  <div className="flex gap-1 items-center justify-center">
+                    <div className="bg-white rounded-full w-1 h-1"></div>
+                    <hr className="border-t border-white border-dashed w-[20px] h-0.5" />
+                    <IoAirplane className="text-white/80 text-2xl" />
+                    <hr className="border-t border-white border-dashed w-[20px] h-0.5" />
                   </div>
-                </CardContent>
-              </Card>
+                  <div className="bg-white rounded-full w-1 h-1"></div>
+                  <p>{to}</p>
+                </div>
+              </div>
             </div>
           </CarouselItem>
         ))}
