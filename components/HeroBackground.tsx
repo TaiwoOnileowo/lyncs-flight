@@ -1,13 +1,20 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 import city from "@/assets/images/city.jpg";
 import plane from "@/assets/images/plane.png";
 import cloud from "@/assets/images/cloud.jpg";
+import { motion } from "framer-motion";
 const HeroBackground = () => {
   return (
     <>
       {/* Gradient Background */}
-      <div className="absolute z-[10] inset-0 bg-gradient-to-br from-[#ffffff] via-[#a5bbfc] to-[#8166f1] w-[80%] h-[100%] -top-[20%] -left-[20%] rounded-full gradient-blur opacity-75"></div>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.75 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        className="absolute z-[10] inset-0 bg-gradient-to-br from-[#ffffff] via-[#a5bbfc] to-[#8166f1] w-[80%] h-[100%] -top-[20%] -left-[20%] rounded-full gradient-blur "
+      ></motion.div>
 
       {/* Background Overlay for the City */}
       <div className="absolute inset-0 z-[5] bg-[#7852ef] opacity-80"></div>
@@ -32,17 +39,48 @@ const HeroBackground = () => {
           className="w-full h-full rounded-full object-cover opacity-70"
           priority
         />
-        <Image
-          src={cloud}
-          alt="cloud"
-          className="absolute bottom-[0%] left-[10%] w-[500px] h-[500px] opacity-60 rounded-full z-[8] gradient-blur1"
-        />
-        <Image
-          src={plane}
-          alt="plane"
+        <motion.div
+          initial={{
+            opacity: 0,
+            // scale: 0.5,
+            x: 50,
+            y: 50,
+          }}
+          animate={{
+            opacity: 1,
+            // scale: 1,
+            x: 0,
+            y: 0,
+          }}
+          transition={{
+            duration: 0.5,
+            delay: 0.2,
+          }}
+          className="absolute bottom-[5%] left-[10%] w-[500px] h-[500px]  rounded-full z-[8] gradient-blur1 flex items-end"
+        >
+          <Image src={cloud} alt="cloud" priority className="w-full h-full opacity-50" />
+        </motion.div>
+        <motion.div
+          initial={{
+            opacity: 0.5,
+            scale: 0.5,
+            x: 50,
+            y: 50,
+          }}
+          animate={{
+            opacity: 1,
+            scale: 1,
+            x: 0,
+            y: 0,
+          }}
+          transition={{
+            duration: 0.5,
+            delay: 0.2,
+          }}
           className="absolute top-[40%] -left-[20%] z-[10] w-[800px]"
-          priority
-        />
+        >
+          <Image src={plane} alt="plane" priority />
+        </motion.div>
       </div>
     </>
   );
