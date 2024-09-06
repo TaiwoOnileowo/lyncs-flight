@@ -36,7 +36,7 @@ const HeroBackground = () => {
         <Image
           src={city}
           alt="city"
-          className="w-full h-full rounded-full object-cover opacity-70"
+          className="w-full h-full rounded-full object-cover opacity-50"
           priority
         />
         <motion.div
@@ -77,7 +77,7 @@ const HeroBackground = () => {
             duration: 0.5,
             delay: 0.2,
           }}
-          className="absolute top-[40%] -left-[20%] z-[10] w-[800px]"
+          className="absolute top-[45%] -left-[20%] z-[10] w-[800px]"
         >
           <Image src={plane} alt="plane" priority />
         </motion.div>

@@ -21,6 +21,9 @@
 .scrollbar-width {
   scrollbar-width: none;
 }
+.rotateY{
+  transform: rotateY(180deg);
+}
 
 /* embla carousel */
 

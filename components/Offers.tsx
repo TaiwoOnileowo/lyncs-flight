@@ -11,12 +11,15 @@ import { usePrevNextButtons } from "./ui/OffersCarouselArrowButtons";
 import DisplayedOffers from "./DisplayedOffers";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { IoMdArrowRoundForward } from "react-icons/io";
+import CurvedBorder from "./ui/CurvedBorder";
+import { useAppContext } from "@/context";
 const TWEEN_FACTOR_BASE = 0.2;
 
 const OPTIONS: EmblaOptionsType = { dragFree: true, loop: true };
 const SLIDE_COUNT = 3;
 const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
 const Offers = () => {
+  const { activeBg } = useAppContext();
   const [emblaRef, emblaApi] = useEmblaCarousel(OPTIONS);
   const tweenFactor = useRef(0);
   const tweenNodes = useRef<HTMLElement[]>([]);
@@ -97,7 +100,12 @@ const Offers = () => {
   }, [emblaApi, tweenParallax]);
 
   return (
-    <div className="w-full bg-blue-100  p-24">
+    <div className="w-full bg-blue-100 relative pb-48 p-24">
+      <CurvedBorder
+        className="-bottom-2 transition-all duration-500 left-0 absolute border-none "
+        fill={activeBg}
+
+      />
       <div className="embla bg-white rounded-xl flex flex-col items-start p-6">
         <div className="flex justify-between items-center px-10  w-full">
           <h2 className="text-3xl font-bold">Offers</h2>

@@ -6,8 +6,10 @@ import React, { useEffect, useRef } from "react";
 import { useInView } from "framer-motion";
 import { travel } from "@/lib/data";
 import { motion } from "framer-motion";
-
+import CurvedBorder from "./ui/CurvedBorder";
+import { useAppContext } from "@/context";
 export function StickyScrollLyncs() {
+  const { activeBg, setActiveBg } = useAppContext();
   const [activeCard, setActiveCard] = React.useState(0);
   const ref = useRef(null);
   const isInView = useInView(ref);
@@ -24,6 +26,9 @@ export function StickyScrollLyncs() {
     }, 3000);
     return () => clearInterval(interval);
   }, [isInView]);
+  useEffect(() => {
+    setActiveBg(backgroundColors[activeCard]);
+  }, [activeCard]);
   const backgroundColors = [
     "#6b46c1", // Warm purple
     "#1e40af", // Deep blue
@@ -31,14 +36,14 @@ export function StickyScrollLyncs() {
     // "#4c1d95", // Deep purple
     // "#7c3aed", // Vibrant purple
   ];
-  const activeBackgroundColor =
-    backgroundColors[activeCard % backgroundColors.length];
+
   return (
     <motion.div
-      className="flex flex-col items-center justify-center gap-16 p-14  w-full"
+      className="flex relative flex-col items-center justify-center gap-16 p-14 pb-32 w-full overflow-hidden"
       animate={{
-        backgroundColor: activeBackgroundColor,
+        backgroundColor: activeBg,
       }}
+      transition={{ duration: 0.5 }}
       ref={ref}
     >
       <h1 className="flex gap-2 items-center text-2xl font-bold justify-center text-white ">
@@ -46,6 +51,10 @@ export function StickyScrollLyncs() {
         Fly with Lyncs
       </h1>
       <StickyScroll content={travel} activeCard={activeCard} />
+      <CurvedBorder
+        className="-bottom-2 left-0 absolute rotateY border-none"
+        fill="white"
+      />
     </motion.div>
   );
 }

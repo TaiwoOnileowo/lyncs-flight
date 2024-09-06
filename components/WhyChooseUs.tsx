@@ -50,7 +50,7 @@ const WhyChooseUs = () => {
           </div>
         ))}
       </div>
-      <button className="mt-8 bg-[#3b82f6] w-[150px] rounded-xl text-white py-3">Book Now</button>
+      <button className="mt-8 bg-gray-800 w-[150px] rounded-xl text-white py-3">Book Now</button>
     </div>
   );
 };
