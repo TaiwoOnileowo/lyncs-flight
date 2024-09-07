@@ -21,7 +21,7 @@
 .scrollbar-width {
   scrollbar-width: none;
 }
-.rotateY{
+.rotateY {
   transform: rotateY(180deg);
 }
 
@@ -70,4 +70,79 @@
 }
 .embla__button:disabled {
   color: var(--detail-high-contrast);
+}
+
+
+button > span:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 20px;
+  height: 0;
+  border: 1px solid white;
+  border-left: none;
+  border-bottom: none;
+  transition: height 0.15s ease-out, width 0.15s ease-out 0.15s;
+}
+
+button.animate > span:after {
+  width: calc(50% - 1px);
+  height: calc(100% - 2px);
+  transition: width 0.15s ease-out, height 0.15s ease-out 0.15s;
+}
+
+button > span:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 50%;
+  width: 20px;
+  height: 0;
+  border: 1px solid white;
+  border-right: none;
+  border-bottom: none;
+  transition: height 0.15s ease-out, width 0.15s ease-out 0.15s;
+}
+
+button.animate > span:before {
+  width: calc(50% - 1px);
+  height: calc(100% - 2px);
+  transition: width 0.15s ease-out, height 0.15s ease-out 0.15s;
+}
+
+button > span > span:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0%;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+button.animate > span > span:before {
+  opacity: 1;
+  border-bottom: 1px solid white;
+  width: calc(50%);
+  height: 1px;
+  transition: opacity 0s ease-out 0.29s, width 0.15s ease-out 0.3s;
+}
+
+button > span > span:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0%;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+button.animate > span > span:after {
+  opacity: 1;
+  border-bottom: 1px solid white;
+  width: calc(50%);
+  height: 1px;
+  transition: opacity 0s ease-out 0.29s, width 0.15s ease-out 0.3s;
 }

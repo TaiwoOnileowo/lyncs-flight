@@ -6,6 +6,7 @@ import PopularFlights from "@/components/PopularFlights";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import Header from "@/components/Header";
 import Testimonials from "@/components/Testimonials";
+import Footer from "@/components/Footer";
 
 const Page = () => {
   return (
@@ -17,6 +18,7 @@ const Page = () => {
       <StickyScrollLyncs />
       <Testimonials />
       <WhyChooseUs />
+      <Footer />
     </div>
   );
 };

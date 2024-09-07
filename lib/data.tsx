@@ -203,7 +203,7 @@ export const navLinks = [
   },
 ];
 
-export const  testimonials = [
+export const testimonials = [
   {
     quote:
       "It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair.",
@@ -234,3 +234,57 @@ export const  testimonials = [
     title: "Moby-Dick",
   },
 ];
+
+export const footer = [
+  {
+    heading: "Other Services",
+    links: [
+      {
+        title: "Hotel Booking",
+        href: "/about",
+      },
+      {
+        title: "Movie Subscription",
+        href: "/services",
+      },
+      {
+        title: "Event Booking",
+        href: "/contact",
+      },
+    ],
+  },
+  {
+    heading: "Company",
+    links: [
+      {
+        title: "About Us",
+        href: "/about",
+      },
+      {
+        title: "Services",
+        href: "/services",
+      },
+      {
+        title: "Contact Us",
+        href: "/contact",
+      },
+    ],
+  },
+  {
+    heading: "Legal",
+    links: [
+      {
+        title: "Privacy Policy",
+        href: "/privacy-policy",
+      },
+      {
+        title: "Terms & Conditions",
+        href: "/terms-and-conditions",
+      },
+    ],
+  },
+];
+import { FaInstagram } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
+import { FaTwitter } from "react-icons/fa";
+export const footerSocial = [<FaInstagram />, <FaGithub />, <FaTwitter />];

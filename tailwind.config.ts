@@ -18,6 +18,7 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         "sky-image": "url('/images/sky.jpg')",
+        "take-off": "url('/images/footer-takeoff.jpg')",
       },
       animation: {
         scroll:

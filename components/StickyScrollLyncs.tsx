@@ -46,8 +46,21 @@ export function StickyScrollLyncs() {
       transition={{ duration: 0.5 }}
       ref={ref}
     >
-      <h1 className="flex gap-2 items-center text-2xl font-bold justify-center text-white ">
-        <LuPlane />
+      <h1 className="flex gap-3 items-center text-2xl font-bold justify-center text-white ">
+        <motion.span
+          animate={{
+            x: isInView ? 60 : 0,
+            y: isInView ? -100 : 0,
+            opacity: isInView ? 0 : 1,
+          }}
+          transition={{
+            duration: 0.5,
+            delay: 1.5,
+          }}
+          className="flex items-center justify-center"
+        >
+          <LuPlane className="text-4xl" />
+        </motion.span>
         Fly with Lyncs
       </h1>
       <StickyScroll content={travel} activeCard={activeCard} />

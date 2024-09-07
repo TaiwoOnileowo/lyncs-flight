@@ -1,13 +1,14 @@
-import React from "react";
-import { BsQrCode } from "react-icons/bs";
-import { FaPlaneDeparture } from "react-icons/fa";
-import { Briefcase } from "lucide-react";
+"use client";
+import React, { useRef } from "react";
 import flight from "@/assets/images/flight.png";
-import checkin from "@/assets/images/check-in.png";
+import { motion } from "framer-motion";
 import luggage from "@/assets/images/luggage.png";
 import Image from "next/image";
 import ok from "@/assets/images/ok.png";
+import { useInView } from "framer-motion";
 const WhyChooseUs = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref);
   const choose = [
     {
       title: "Find the Perfect Flight",
@@ -29,11 +30,40 @@ const WhyChooseUs = () => {
     },
   ];
   return (
-    <div className="bg-sky-image w-full p-10 text-black mt-24 flex flex-col items-center justify-center bg-cover bg-top bg-no-repeat">
+    <div
+      className="bg-sky-image w-full p-10 text-black mt-24 flex flex-col items-center justify-center bg-cover bg-top bg-no-repeat"
+      ref={ref}
+    >
       <div className="flex items-center justify-center gap-16 w-full">
-        <hr className="border-white/50 w-[300px] h-0.5" />
-        <h1 className="text-3xl  text-white">Book your flight with Lyncs</h1>
-        <hr className="border-white/50 w-[300px] h-0.5" />
+        <motion.hr
+          initial={{ opacity: 0, x: -100 }}
+          animate={{
+            opacity: isInView ? 1 : undefined,
+            x: isInView ? 0 : undefined,
+          }}
+          transition={{ duration: 0.3, delay: 0.5 }}
+          className="border-white/50 w-[300px] h-0.5"
+        />
+        <motion.h1
+          className="text-3xl  text-white"
+          initial={{ opacity: 0, y: 100 }}
+          animate={{
+            opacity: isInView ? 1 : undefined,
+            y: isInView ? 0 : undefined,
+          }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+        >
+          Book your flight with Lyncs
+        </motion.h1>
+        <motion.hr
+          initial={{ opacity: 0, x: 100 }}
+          animate={{
+            opacity: isInView ? 1 : undefined,
+            x: isInView ? 0 : undefined,
+          }}
+          transition={{ duration: 0.3, delay: 0.5 }}
+          className="border-white/50 w-[300px] h-0.5"
+        />
       </div>
       <div className="flex gap-14 mt-20 items-center justify-center">
         {choose.map(({ title, description, icon }, index) => (
@@ -41,7 +71,18 @@ const WhyChooseUs = () => {
             key={index}
             className="flex flex-col items-center justify-center  w-[400px]"
           >
-            <span className="text-white text-5xl">{icon}</span>
+            <motion.span
+              className="text-white text-5xl"
+              animate={{
+                scale: isInView && index === 0 ? [ 1, 1.2, 1] : 1,
+              }}
+              transition={{
+                duration: 0.5,
+                delay: 1.5,
+              }}
+            >
+              {icon}
+            </motion.span>
 
             <h1 className="text-2xl font-bold text-white mt-3">{title}</h1>
             <p className="text-white mt-6 text-sm text-center font-semibold">
@@ -50,7 +91,9 @@ const WhyChooseUs = () => {
           </div>
         ))}
       </div>
-      <button className="mt-8 bg-gray-800 w-[150px] rounded-xl text-white py-3">Book Now</button>
+      <button className="mt-8 bg-gray-800 w-[150px] rounded-xl text-white py-3">
+        Book Now
+      </button>
     </div>
   );
 };
