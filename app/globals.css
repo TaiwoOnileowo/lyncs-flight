@@ -3,6 +3,24 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "PPMori-SemiBold";
+  src: url("/fonts/ppmori/PPMori-SemiBold.otf") format("opentype");
+  /* font-weight: normal;
+  font-style: normal; */
+}
+@font-face {
+  font-family: "PPMori-Regular";
+  src: url("/fonts/ppmori/PPMori-Regular.otf") format("opentype");
+  /* font-weight: normal;
+  font-style: normal; */
+}
+button > span:before {
+  content: none !important;
+}
+button > span::after {
+  content: none !important;
+}
 .gradient-blur {
   filter: blur(120px);
 }
@@ -71,7 +89,6 @@
 .embla__button:disabled {
   color: var(--detail-high-contrast);
 }
-
 
 button > span:after {
   content: "";

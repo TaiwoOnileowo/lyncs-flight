@@ -19,6 +19,8 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         "sky-image": "url('/images/sky.jpg')",
         "take-off": "url('/images/footer-takeoff.jpg')",
+        plane: "url('/images/plane.jpg')",
+        city: "url('/images/city.png')",
       },
       animation: {
         scroll:
@@ -35,6 +37,10 @@ const config: Config = {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+      },
+      fontFamily: {
+        ppmori: "PPMori-SemiBold",
+        ppmorinormal: "PPMori-Regular",
       },
       colors: {},
     },
