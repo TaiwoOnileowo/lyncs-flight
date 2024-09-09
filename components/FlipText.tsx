@@ -17,7 +17,7 @@ export const FlipText = ({ children }: { children: string }) => {
   };
 
   return (
-    <motion.p className="relative block overflow-hidden whitespace-nowrap font-ppmori max-md:text-xl text-3xl ">
+    <motion.p className="relative block overflow-hidden whitespace-nowrap font-ppmori max-md:text-xl max-lg:text-[25px] text-3xl ">
       {children.split("").map((l, i) => (
         <motion.span
           key={i}

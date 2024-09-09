@@ -5,20 +5,8 @@ import { FaPlane } from "react-icons/fa6";
 import Image from "next/image";
 import slash from "@/assets/icons/slash.svg";
 const HeroHeading = () => {
-  const [firstPlaces, setFirstPlaces] = useState([
-    "LG",
-    "TOR",
-    "PH",
-    "AB",
-    "NY",
-  ]);
-  const [secondPlaces, setSecondPlaces] = useState([
-    "AB",
-    "NY",
-    "OG",
-    "PAR",
-    "LG",
-  ]);
+  const firstPlaces = ["LG", "TOR", "PH", "AB", "NY"];
+  const secondPlaces = ["AB", "NY", "OG", "PAR", "LG"];
   const [placeIndex, setPlaceIndex] = useState(0);
   const planeControls = useAnimationControls();
   useEffect(() => {
@@ -52,35 +40,40 @@ const HeroHeading = () => {
 
   return (
     <div>
-      <h1 className="font-ppmori max-md:text-center text-[12vw] md:text-8xl leading-[90%] tracking-[-0.04rem] ">
-        <span className="w-fit">
-          <div className="uppercase flex gap-2  items-center text-[#d1cece] text-sm ">
+      <h1 className="font-ppmori max-xl:text-center max-xl:text-[8vw]  max-sm:text-[12vw] xl:text-8xl leading-[90%] tracking-[-0.04rem] ">
+        <span className="relative">
+          <div className="mx-auto max-md:absolute  xl:absolute w-full mb-4 max-xl:w-[50%] max-md:w-full inset-0 h-fit -inset-y-8 uppercase flex gap-2  items-center text-[#d1cece] text-sm ">
             <p>{firstPlaces[placeIndex]}</p>
-            <div className="ml-8 mr-2 border-t-[3px] relative border-t-[#d1cece] border-dotted w-[80%] border-black">
-              <motion.span
+
+            <div className="relative w-[80%] ml-4 mr-2 h-fit">
+              <hr className=" border-t-[#d1cece] border-dotted w-full  border-t-[3px] " />
+              <motion.p
                 animate={planeControls}
-                className="absolute  rounded-full bg-white w-6 h-6 -top-[14px] -left-7 flex items-center justify-center"
+                className="absolute w-full -inset-y-[6px] h-fit"
               >
                 <FaPlane />
-              </motion.span>
+              </motion.p>
             </div>
+
             <p>{secondPlaces[placeIndex]}</p>
           </div>
           It&apos;s A Big
         </span>
-        <br /> World Out There,
+        <br className="max-xl:hidden max-md:block block" /> World{" "}
+        <br className="max-xl:block max-md:hidden hidden" />
+        Out There,
         <br />{" "}
         <span className="relative z-[1]">
           <span className="z-[3] relative">Go Explore! </span>
           <Image
             src={slash}
             alt="slash"
-            className="absolute w-full -bottom-4 z-[2]"
+            className="absolute w-full -bottom-4 z-[2] right-[50%] transform translate-x-[50%]"
           />
         </span>
       </h1>
 
-      <p className="font-ppmorinormal mt-6 text-2xl max-md:text-center max-md:text-[4vw]">
+      <p className="font-ppmorinormal mt-6 text-2xl max-xl:text-center max-md:text-[4vw] max-xl:text-[2.2vw]">
         Book flight tickets in style with Lyncs
       </p>
     </div>

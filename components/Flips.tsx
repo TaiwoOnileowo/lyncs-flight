@@ -31,7 +31,7 @@ const Flips = () => {
     return () => clearInterval(interval);
   }, []);
   return (
-    <div className="max-md:w-full w-[70%] text-white max-md:border-white/80 border-white border-2 h-full rounded-2xl grid max-md:grid-cols-2 grid-cols-3">
+    <div className="max-md:w-full max-xl:w-[60%] xl:w-[70%] text-white max-xl:border-white/80 border-white border-2 h-full rounded-2xl grid max-xl:grid-cols-2 grid-cols-3">
       <div className="flex items-center justify-center border-r border-gray-200/50">
         <AnimatePresence mode="wait" initial={false}>
           <FlipText key={firstSquareTexts[activeIndex]}>
@@ -44,7 +44,7 @@ const Flips = () => {
           {secondSquareTexts[activeIndex]}
         </FlipText>
       </div>
-      <div className="max-md:hidden flex h-full items-center justify-center ">
+      <div className="max-xl:hidden flex h-full items-center justify-center ">
         <FlipText key={thirdSquareTexts[activeIndex]}>
           {thirdSquareTexts[activeIndex]}
         </FlipText>
