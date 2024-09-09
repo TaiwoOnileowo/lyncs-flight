@@ -1,5 +1,5 @@
+"use client"
 import { motion } from "framer-motion";
-
 const DURATION = 0.25;
 const STAGGER = 0.025;
 
@@ -17,7 +17,7 @@ export const FlipText = ({ children }: { children: string }) => {
   };
 
   return (
-    <motion.p className="relative block overflow-hidden whitespace-nowrap font-ppmori text-3xl ">
+    <motion.p className="relative block overflow-hidden whitespace-nowrap font-ppmori max-md:text-xl text-3xl ">
       {children.split("").map((l, i) => (
         <motion.span
           key={i}
