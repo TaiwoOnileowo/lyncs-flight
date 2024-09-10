@@ -41,6 +41,7 @@ const config: Config = {
       fontFamily: {
         ppmori: "PPMori-SemiBold",
         ppmorinormal: "PPMori-Regular",
+        satoshiMedium: "Satoshi-Medium, sans-serif",
       },
       colors: {},
     },

@@ -10,9 +10,11 @@ import Footer from "@/components/Footer";
 import Hero1 from "@/components/Hero1";
 import Hero2 from "@/components/Hero2";
 import VideoRecord from "@/components/VideoRecord";
+import Hero3 from "@/components/Hero3";
+import FlightWidget from "@/components/FlightWidget";
 const Page = () => {
   return (
-    <div className="flex flex-col items-center justify-center  overflow-auto bg-black ">
+    <div className="h-[150vh] overflow-auto ">
       {/* <Header />
       <Hero />
       <PopularFlights />
@@ -22,10 +24,12 @@ const Page = () => {
       <WhyChooseUs />
       <Footer /> */}
 
-      <Hero2 />
+      {/* <Hero2 />
       <div className="max-md:block hidden h-[40vh] mb-24 max-[400px]:h-[50vh] ">
         <VideoRecord />
-      </div>
+      </div> */}
+      <Hero3 />
+      <FlightWidget />
     </div>
   );
 };
