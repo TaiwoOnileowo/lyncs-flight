@@ -58,7 +58,12 @@ const HeroBackground = () => {
           }}
           className="absolute bottom-[5%] left-[10%] w-[500px] h-[500px] rounded-full z-[8] gradient-blur1 flex items-end"
         >
-          <Image src={cloud} alt="cloud" priority className="w-full h-full opacity-50" />
+          <Image
+            src={cloud}
+            alt="cloud"
+            priority
+            className="w-full h-full opacity-50"
+          />
         </motion.div>
         <motion.div
           initial={{
@@ -79,7 +84,7 @@ const HeroBackground = () => {
           }}
           className="absolute top-[45%] -left-[20%] z-[10] w-[800px]"
         >
-          <Image src={plane} alt="plane" priority />
+          <img src={plane.src} alt="plane"  />
         </motion.div>
       </div>
     </>

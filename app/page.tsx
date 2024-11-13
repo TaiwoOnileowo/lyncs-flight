@@ -16,20 +16,20 @@ const Page = () => {
   return (
     <div className="h-[150vh] overflow-auto ">
       {/* <Header />
-      <Hero />
+      
       <PopularFlights />
       <Offers />
       <StickyScrollLyncs />
       <Testimonials />
       <WhyChooseUs />
       <Footer /> */}
-
-      {/* <Hero2 />
+      {/* <Hero /> */}
+      <Hero2 />
       <div className="max-md:block hidden h-[40vh] mb-24 max-[400px]:h-[50vh] ">
         <VideoRecord />
-      </div> */}
-      <Hero3 />
-      <FlightWidget />
+      </div>
+      {/* <Hero3 /> */}
+      {/* <FlightWidget /> */}
     </div>
   );
 };
